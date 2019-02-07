@@ -90,7 +90,7 @@ h1, h2, h3, h4, h5, h6, figure {
   background-size: cover;
   background-attachment: fixed;
   position: relative;
-  height: auto;
+  height: 100%;
   width: 100%;
 }
 #fh5co-header .overlay,
