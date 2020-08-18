@@ -5,7 +5,7 @@ window.onload = () => {
 const contagem = document.getElementById("contagem")
 const qavtb = document.getElementById("quando-a-vontade-bater")
 const redeGlobo = document.getElementById("rede-globo")
-const newYearDate = new Date('2020-08-18 20:40:00')
+const newYearDate = new Date('2020-08-18 20:53:00')
 let stopRedeGlobo = false;
 
 const main = () => {
