@@ -1,20 +1,17 @@
-window.onload = () => {
-    main()
-}
-
 const contagem = document.getElementById("contagem")
 const qavtb = document.getElementById("quando-a-vontade-bater")
 const redeGlobo = document.getElementById("rede-globo")
 const newYearDate = new Date('2021-01-01 00:00:00')
+const button = document.getElementById("start")
 let stopRedeGlobo = false;
 
-const main = () => {
+button.addEventListener('click', () => {
     const qavtbPlayling = false;
     contagemPlayling = false
     playLoopRedeGlobo();
     startMusiceXSecondsBefore(contagem, 13, contagemPlayling);
     startMusiceXSecondsBefore(qavtb, 45, qavtbPlayling);
-}
+})
 
 const startMusiceXSecondsBefore = (music, seconds, playing) => {
     setInterval(() => {
@@ -38,6 +35,5 @@ const calculateTimeDifference = (endDate, startDate) => {
 }
 
 const isPlaying = (audio) => {
-    console.log(audio.duration, audio.paused)
     return (audio.duration > 0 && !audio.paused) ? true : false; 
 }
