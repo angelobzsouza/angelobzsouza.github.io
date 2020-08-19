@@ -8,10 +8,19 @@ let stopRedeGlobo = false;
 window.addEventListener('load', () => {
     const qavtbPlayling = false;
     contagemPlayling = false
+    startCountdown()
     playLoopRedeGlobo();
     startMusiceXSecondsBefore(contagem, 13, contagemPlayling);
     startMusiceXSecondsBefore(qavtb, 45, qavtbPlayling);
 })
+
+const startCountdown = () => {
+    const h1 = document.getElementById("countdown")
+    setInterval(() => {
+        let time = calculateTimeDifference(newYearDate, new Date())
+        h1.innerHTML = time.toFixed(2) + " s"
+    }, 100);
+}
 
 const startMusiceXSecondsBefore = (music, seconds, playing) => {
     setInterval(() => {
