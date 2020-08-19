@@ -1,7 +1,7 @@
 const contagem = document.getElementById("contagem")
 const qavtb = document.getElementById("quando-a-vontade-bater")
 const redeGlobo = document.getElementById("rede-globo")
-const newYearDate = new Date('2020-08-18 21:32:00')
+const newYearDate = new Date('2020-08-18 21:35:00')
 const button = document.getElementById("start")
 let stopRedeGlobo = false;
 
