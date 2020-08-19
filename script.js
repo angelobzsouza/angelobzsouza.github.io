@@ -5,7 +5,7 @@ const newYearDate = new Date('2021-01-01 00:00:00')
 const button = document.getElementById("start")
 let stopRedeGlobo = false;
 
-button.addEventListener('click', () => {
+window.addEventListener('load', () => {
     const qavtbPlayling = false;
     contagemPlayling = false
     playLoopRedeGlobo();
