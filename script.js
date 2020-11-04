@@ -14,11 +14,13 @@ window.addEventListener('load', () => {
     startMusiceXSecondsBefore(qavtb, 45, qavtbPlayling);
 })
 
+const zeroPad = (num, places) => String(num).padStart(places, '0')
+
 const startCountdown = () => {
     const h1 = document.getElementById("countdown")
     setInterval(() => {
-        let time = calculateTimeDifference(newYearDate, new Date())
-        h1.innerHTML = time.toFixed(2) + " s"
+        let [days, hours, minutes, seconds] = calculateTimeDifferenceFormatted(newYearDate, new Date())
+        h1.innerHTML = `Faltam ${days} dias e ${zeroPad(hours, 2)}:${zeroPad(minutes, 2)}:${zeroPad(seconds, 2)} horas`
     }, 100);
 }
 
@@ -40,7 +42,16 @@ const playLoopRedeGlobo = () => {
 }
 
 const calculateTimeDifference = (endDate, startDate) => {
-    return (endDate.getTime() - startDate.getTime()) / 1000;
+    return (endDate.getTime() - startDate.getTime()) / 1000
+}
+
+const calculateTimeDifferenceFormatted = (endDate, startDate) => {
+    const difference = endDate.getTime() - startDate.getTime()
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+    return [days, hours, minutes, seconds]
 }
 
 const isPlaying = (audio) => {
