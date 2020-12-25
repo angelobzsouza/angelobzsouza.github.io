@@ -4,7 +4,7 @@ const button = document.getElementById("start")
 const body = document.getElementById("body")
 const contagem = document.getElementById("contagem")
 
-const newYearDate = new Date('2020-12-25 00:00:00')
+const newYearDate = new Date('2021-01-01 00:00:00')
 let stopRedeGlobo = false;
 
 window.addEventListener('load', () => {
