@@ -1,16 +1,14 @@
-const redeGlobo = document.getElementById("rede-globo")
-const video = document.getElementById("video")
-const button = document.getElementById("start")
-const body = document.getElementById("body")
-const contagem = document.getElementById("contagem")
-
-const newYearDate = new Date('2021-01-01 00:00:00')
-let stopRedeGlobo = false;
+const newYearDate = new Date('2021-02-04 16:25:00')
+let stopLoopMusic = false;
 
 window.addEventListener('load', () => {
+    const loopMusic = document.getElementById("rede-globo")
+    const video = document.getElementById("video")
+    const contagem = document.getElementById("contagem")
+
     startCountdown()
-    playLoopRedeGlobo();
-    startVideoXSecondsBefore(video, 311, playing = false);
+    playLoopRedeGlobo(loopMusic);
+    startVideoXSecondsBefore(video, 311, playing = false, contagem, loopMusic);
 })
 
 const calculateTimeDifference = (endDate, startDate) => {
@@ -40,20 +38,20 @@ const isPlaying = (audio) => {
     return (audio.duration > 0 && !audio.paused) ? true : false; 
 }
 
-const playLoopRedeGlobo = () => {
+const playLoopRedeGlobo = (music) => {
     setInterval(() => {
-        if (!isPlaying(redeGlobo) && !stopRedeGlobo) redeGlobo.play()
+        if (!isPlaying(music) && !stopLoopMusic) music.play()
     }, 1)
 }
 
-const startVideoXSecondsBefore = (video, seconds, playing) => {
+const startVideoXSecondsBefore = (video, seconds, playing, contagem, loopMusic) => {
     setInterval(() => {
         if (calculateTimeDifference(newYearDate, new Date()) < seconds && !playing) {
             video.style.display = "block";
             contagem.style.display = "none";
             playing = true;
-            stopRedeGlobo = true;
-            redeGlobo.pause();
+            stopLoopMusic = true;
+            loopMusic.pause();
             video.play();
         }
     }, 1)
