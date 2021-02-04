@@ -1,14 +1,14 @@
-const newYearDate = new Date('2021-02-04 16:25:00')
+const newYearDate = new Date('2022-01-01 00:00:00')
 let stopLoopMusic = false;
 
 window.addEventListener('load', () => {
-    const loopMusic = document.getElementById("rede-globo")
+    const loopMusic = document.getElementById("loop-music")
     const video = document.getElementById("video")
     const contagem = document.getElementById("contagem")
 
     startCountdown()
     playLoopRedeGlobo(loopMusic);
-    startVideoXSecondsBefore(video, 311, playing = false, contagem, loopMusic);
+    // startVideoXSecondsBefore(video, 311, playing = false, contagem, loopMusic);
 })
 
 const calculateTimeDifference = (endDate, startDate) => {
